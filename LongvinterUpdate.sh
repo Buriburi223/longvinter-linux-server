@@ -6,7 +6,7 @@ UpdateServer () {
         sudo systemctl stop longvinter && echo "Server is now closed, now getting latest version..."
         git restore .
         sleep 1
-        git pull "https://github.com/Buriburi223/longvinter-linux-server.git" main
+        git pull "https://github.com/Buriburi223/longvinter-linux-server.git" fixed
         sleep 1
         echo "Starting server..."
         sudo chmod -R ugo+rwx ~/longvinter-linux-server/
@@ -17,7 +17,7 @@ cd ~/longvinter-linux-server
 
 git fetch
 
-if git merge-base --is-ancestor origin/main main ; then
+if git merge-base --is-ancestor origin/fixed fixed ; then
         echo "Nothing to update."
 else
         echo "Change found, updating server..."
